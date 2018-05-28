@@ -1,0 +1,6 @@
+<h1>character creation</h1>
+<form method="post" action="/creation">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit"/>
+</form>
