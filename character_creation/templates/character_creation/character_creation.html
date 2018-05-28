@@ -1,6 +1,19 @@
+{% load static %}
 <h1>character creation</h1>
 <form method="post" action="/creation">
     {% csrf_token %}
-    {{ form }}
+    <h3>Stat Points: </h3><h3 id="points">15</h3>
+    {% for field in form %}
+        {% if form.label_tag == "Character Name" %}
+            <div>
+        {% else %}
+            <div class=num_checker>
+        {% endif %}
+            {{ field.errors }}
+            {{ field.label_tag }}
+            {{ field }}
+        </div>
+    {% endfor %}
     <input type="submit" value="Submit"/>
 </form>
+<script src="{% static 'CreationFields.js' %}"></script>
